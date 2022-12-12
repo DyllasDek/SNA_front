@@ -1,0 +1,58 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - master
+
+env:
+  UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+
+jobs:
+  build:
+    name: Build project
+    runs-on: ubuntu-latest
+    steps:
+
+      # Checkout
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          lfs: true
+
+      # Cache
+      - uses: actions/cache@v2
+        with:
+          path: Library
+          key: Library
+
+      # Build
+      - name: Build project
+        uses: game-ci/unity-builder@v2
+        with:
+          targetPlatform: WebGL
+
+      # Output 
+      - uses: actions/upload-artifact@v2
+        with:
+          name: build-WebGL
+          path: build
+          
+  deployPages:
+    needs: build
+    name: Save build to server branch 🚀
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - uses: actions/download-artifact@v2
+        with:
+          name: build-WebGL
+          path: build
+
+      - name: Save 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: server
+          folder: build
