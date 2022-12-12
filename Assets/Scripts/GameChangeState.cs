@@ -6,6 +6,7 @@ public class GameChangeState : MonoBehaviour
 {
         [SerializeField] private GameObject LoseCanvas;
         [SerializeField] private GameObject HomeCanvas;
+        [SerializeField] private GameObject TopScoreCanvas;
         [SerializeField] private GameObject Level;
         [SerializeField] private Transform GarbageTransform;
         
@@ -26,10 +27,18 @@ public class GameChangeState : MonoBehaviour
                 Level.SetActive(false);
                 HomeCanvas.SetActive(false);
                 LoseCanvas.SetActive(true);
+                TopScoreCanvas.SetActive(false);
                 ClearGarbage();
                 Database.Instance.SendPlayerProfileToServer();
         }
 
+        public void LoadTopScoreScene()
+        {
+                Level.SetActive(false);
+                HomeCanvas.SetActive(false);
+                LoseCanvas.SetActive(false);
+                TopScoreCanvas.SetActive(true);
+        }
         private void ClearGarbage()
         {
                 GarbageTransform.gameObject.SetActive(false);
@@ -41,6 +50,7 @@ public class GameChangeState : MonoBehaviour
                 HomeCanvas.SetActive(true);
                 LoseCanvas.SetActive(false);
                 Level.SetActive(false);
+                TopScoreCanvas.SetActive(false);
                 ClearGarbage();
         }
 
@@ -49,6 +59,7 @@ public class GameChangeState : MonoBehaviour
                 HomeCanvas.SetActive(false);
                 LoseCanvas.SetActive(false);
                 Level.SetActive(true);
+                TopScoreCanvas.SetActive(false);
                 GarbageTransform.gameObject.SetActive(true);
         }
 }
