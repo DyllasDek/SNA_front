@@ -12,7 +12,7 @@ namespace DefaultNamespace
         public PlayerData PlayerData;
         public static Database Instance;
         public string TopScoreString="";
-        public string Address = "http://localhost:3000/Players";
+        public string Address = "http://localhost:30000";
 
         private void Start()
         {
@@ -112,9 +112,8 @@ namespace DefaultNamespace
 
         IEnumerator GetTopPlayers(string addressName, Action<string> callback = null)
         {
-            using UnityWebRequest request = UnityWebRequest.Get(Address + "/" + addressName);
+            using UnityWebRequest request = UnityWebRequest.Get(Address + addressName);
             yield return request.SendWebRequest();
-
             if (request.result == UnityWebRequest.Result.Success)
             {
                 callback?.Invoke(request.downloadHandler.text);

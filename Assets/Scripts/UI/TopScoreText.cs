@@ -32,7 +32,7 @@ namespace DefaultNamespace
             {
                 if (player.CurrentName.Equals("")) return finalString;
 
-                finalString +=  order+". "+player.CurrentName+":    " +player.CurrentMaxScore;
+                finalString +=  order+". "+player.CurrentName+":    " +player.CurrentMaxScore+"\n";
                 
                 order++;
             }
