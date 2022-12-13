@@ -11,13 +11,17 @@ namespace DefaultNamespace
 
         private void OnEnable()
         {
-            var list = new List<PlayerData>();
-            list.Add(new PlayerData("Danila",1005));
-            list.Add(new PlayerData("Yarik",1234));
-            list.Add(new PlayerData("Nookie",12));
-            TextContainer.SetText(FormatTopString(list));
+            Database.Instance.GetTopProfiles();
+            
         }
 
+        private void Update()
+        {
+            if (isActiveAndEnabled)
+            {
+                TextContainer.SetText(Database.Instance.TopScoreString);
+            }
+        }
 
         public static string FormatTopString(List<PlayerData> playerDatas)
         {
@@ -32,8 +36,9 @@ namespace DefaultNamespace
                 
                 order++;
             }
-
+                
             return finalString;
         }
+        
     }
 }

@@ -7885,7 +7885,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1080, y: 1092}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0.5
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -9222,6 +9222,11 @@ MonoBehaviour:
 
     3. Danila:   12
 
+    4.
+    Danila:   12
+
+    5. Danila:   12
+
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3f73eee6f10740c4ca293c8538fb019d, type: 2}
@@ -9249,7 +9254,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 45.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -9499,7 +9504,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 92.2
+  m_fontSize: 163.25
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -10031,6 +10036,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53b44279816d48ef815e462e85a98ffe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TopScoreString: 
   Address: http://localhost:30000
 --- !u!43 &1771515987
 Mesh:
