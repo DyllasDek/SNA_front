@@ -10,6 +10,16 @@ public class PlayerData
     public int CurrentScore;
     public int CurrentMaxScore;
 
+    public PlayerData(string danila, int i)
+    {
+        CurrentMaxScore = i;
+        CurrentName = danila;
+    }
+
+    public PlayerData()
+    {
+    }
+
     public void UpdateMaxScore()
     {
         if (CurrentMaxScore < CurrentScore)
