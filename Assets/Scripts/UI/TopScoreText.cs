@@ -23,14 +23,12 @@ namespace DefaultNamespace
         {
             int order = 1;
             var finalString = "";
-            
-            finalString+=String.Format("{0,-15} {1,9}\n\n", "Name", "Score");
 
             foreach (var player in playerDatas)
             {
                 if (player.CurrentName.Equals("")) return finalString;
 
-                finalString +=  String.Format("{0,-15} {1,9}", player.CurrentName,  player.CurrentMaxScore);
+                finalString +=  order+". "+player.CurrentName+":    " +player.CurrentMaxScore;
                 
                 order++;
             }
