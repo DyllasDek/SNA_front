@@ -74,6 +74,12 @@ namespace DefaultNamespace
         private void ParsePlayerProfile(string text)
         {
             if (text.Equals("{}")) return;
+            PlayerData = PlayerData.Parse(text);
+        }
+
+        private void ParseTopResults(string text)
+        {
+            if (text.Equals("{}")) return;
             var jsons = JSONToList(text);
             var list = new List<PlayerData>();
             foreach (var json in jsons)
@@ -81,12 +87,6 @@ namespace DefaultNamespace
                 list.Add(PlayerData.Parse(json));
             }
             TopScoreString = TopScoreText.FormatTopString(list);
-        }
-
-        private void ParseTopResults(string text)
-        {
-            if (text.Equals("{}")) return;
-            PlayerData = PlayerData.Parse(text);
         }
 
         IEnumerator SendServerRequest(string requestAddress, string data, Action<string> callback = null)

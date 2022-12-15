@@ -16,30 +16,29 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         var point = GetClosestPoint();
-        movement = transform.DOMove(point.position, 1/MovementSpeed).SetEase(MovementEase);
+        movement = transform.DOMove(point.position, 1 / MovementSpeed).SetEase(MovementEase);
     }
 
     void Update()
     {
-        
         if (Input.GetMouseButtonDown(0))
         {
             movement?.Kill();
             var point = GetClosestPoint();
-            movement = transform.DOMove(point.position, 1/MovementSpeed).SetEase(MovementEase);
+            if (point == null) return;
+            movement = transform.DOMove(point.position, 1 / MovementSpeed).SetEase(MovementEase);
         }
     }
 
     public Transform GetClosestPoint()
     {
-        
         var inputPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        var distance=Mathf.Infinity;
-        var closestPoint = MovePoints[0];
+        var distance = Mathf.Infinity;
+        Transform closestPoint = null;
         foreach (var point in MovePoints)
         {
             var curDistance = Vector2.Distance(point.position, inputPosition);
-            if ( curDistance< distance)
+            if (curDistance < distance)
             {
                 distance = curDistance;
                 closestPoint = point;

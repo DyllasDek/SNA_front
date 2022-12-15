@@ -6,7 +6,7 @@ using UnityEngine.Networking;
 
 public class PlayerData
 {
-    public string CurrentName;
+    public string CurrentName="";
     public int CurrentScore;
     public int CurrentMaxScore;
 
