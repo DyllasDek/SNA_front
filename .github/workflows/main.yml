@@ -47,7 +47,7 @@ jobs:
 
         - uses: actions/upload-artifact@v2
           with:
-            name: build-WebGL
+            name: Build
             path: build
           
   deployPages:
@@ -60,7 +60,7 @@ jobs:
 
       - uses: actions/download-artifact@v2
         with:
-          name: build-WebGL
+          name: Build
           path: build
 
       - name: Save 🚀
