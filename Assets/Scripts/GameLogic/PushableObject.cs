@@ -19,6 +19,7 @@ namespace DefaultNamespace
             {
                 transform.DOScale(0, 0.2f).OnComplete(() => { Destroy(gameObject); });
             }
+            
         }
     }
 }
