@@ -36,7 +36,8 @@ namespace DefaultNamespace
         public void TakeDamage()
         {
             _curHealth -= 1;
-            HealthObjects[Mathf.Clamp(_curHealth,0,MaxHealth)].SetActive(false);
+            var curHealthImageIndex = Mathf.Clamp(_curHealth,0,HealthObjects.Count-1);
+            HealthObjects[curHealthImageIndex].SetActive(false);
             if (_curHealth <= 0)
             {
                 Die();
